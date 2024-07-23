@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   api:
-    container_name: node_assignment
+    container_name: server-api
     restart: always
     build:
       context: ./server
     ports:
-      - "3000:3000"
+      - "3001:3000"
     depends_on:
       - postgres_db
     volumes:
@@ -27,12 +27,12 @@ services:
       - POSTGRES_DB=${DB_NAME}
 
   client:
-    container_name: react_app
+    container_name: client-app
     restart: always
     build:
       context: ./client
     ports:
-      - "3001:3000"
+      - "3000:3000"
     volumes:
       - ./client:/usr/src/app
       - /usr/src/app/node_modules

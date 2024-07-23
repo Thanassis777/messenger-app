@@ -14,7 +14,7 @@ RUN npm install
 RUN npm install -g nodemon
 
 # Bundle app source
-COPY server .
+COPY . .
 
 EXPOSE 3000
 
